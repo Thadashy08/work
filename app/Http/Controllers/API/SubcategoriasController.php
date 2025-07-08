@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Models\SubCategorias;
+use App\Models\SubCategoria;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -13,7 +13,7 @@ class SubCategoriasController extends Controller
      */
     public function index()
     {
-        return SubCategorias::all();
+        return SubCategoria::all();
     }
 
     /**
@@ -26,22 +26,22 @@ class SubCategoriasController extends Controller
             'categoria_id' => 'required|exists:categorias,id'
         ]);
 
-        return SubCategorias::create($request->all());
+        return SubCategoria::create($request->all());
 
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(SubCategorias $subcategorias)
+    public function show(SubCategoria $subcategoria)
     {
-        return $subcategorias;
+        return $subcategoria;
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SubCategorias $subcategorias)
+    public function update(Request $request, SubCategoria $subcategorias)
     {
         $subcategorias->update($request->all());
         return $subcategorias;
@@ -50,7 +50,7 @@ class SubCategoriasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SubCategorias $subcategorias)
+    public function destroy(SubCategoria $subcategorias)
     {
         $subcategorias->delete();
         return response()->json(['message' => 'Eliminado']);
