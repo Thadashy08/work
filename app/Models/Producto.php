@@ -12,7 +12,7 @@ class Producto extends Model
         'precio',
         'categoria_id',
         'subcategoria_id',
-        'marca_id'
+        'marca_id',
     ];
 
     public function categoria(){
