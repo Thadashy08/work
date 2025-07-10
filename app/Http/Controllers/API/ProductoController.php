@@ -24,6 +24,10 @@ class ProductoController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'required|string',
+            'precio' => 'required|numeric|min:0',
+            'precio_con_iva' => 'required|numeric|min:0',
+            'iva' => 'required|numeric|min:0|max:99.99',
+            'stock' => 'required|integer|min:0',
             'categoria_id' => 'required|exists:categorias,id',
             'subcategoria_id' => 'required|exists:subcategorias,id',
             'marca_id' => 'required|exists:marcas,id',
@@ -48,9 +52,13 @@ class ProductoController extends Controller
         $request->validate([
             'nombre' => 'required|string|max:255',
             'descripcion' => 'required|string',
+            'precio' => 'required|numeric|min:0',
+            'precio_con_iva' => 'required|numeric|min:0',
+            'iva' => 'required|numeric|min:0|max:99.99',
+            'stock' => 'required|integer|min:0',
             'categoria_id' => 'required|exists:categorias,id',
             'subcategoria_id' => 'required|exists:subcategorias,id',
-            'marca_id' => 'requiered|exists:marcas,id',
+            'marca_id' => 'required|exists:marcas,id',
         ]);
 
         $producto->update($request->all());
